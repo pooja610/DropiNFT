@@ -4,14 +4,13 @@ import axios from 'axios'
 import Web3Modal from "web3modal"
 
 import {
-    nftmarketaddress, nftaddress
+    nftAddress, marketPlaceAddress
 } from '../config' 
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
-import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
-import { ethers } from 'hardhat'
+import NFTMarket from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 
-export default function MyAssets() {
+export default function OwnedAssets() {
     const [nfts, setNfts] = useState([])
     const [loadingState, setLoadingState] = useState('not-loaded')
     useEffect(()=> {
@@ -20,11 +19,11 @@ export default function MyAssets() {
     async function loadNfts() {
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
-        const provider = new ethers.provider.Web3Provider(connection)
+        const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
 
-        const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-        const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
+        const marketContract = new ethers.Contract(nftAddress, NFTMarket.abi, signer)
+        const tokenContract = new ethers.Contract(marketPlaceAddress, NFT.abi, provider)
         const data = await marketContract.fetchMyNFTs()
 
         const items = await Promise.all(data.map(async i=> {
