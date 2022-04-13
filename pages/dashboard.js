@@ -13,7 +13,7 @@ import { CacheProvider } from '@emotion/react'
 
 export default function Dashboard() {
     const [nfts, setNfts] = useState([])
-    const [sold, setSold] = useState([])
+    const [isSold, setSold] = useState([])
 
     const [loadingState, setLoadingState] = useState('not-loaded')
     useEffect(()=> {
@@ -41,7 +41,7 @@ export default function Dashboard() {
                 tokenId: i.tokenId.toNumber(),
                 seller: i.seller,
                 owner: i.owner,
-                sold: i.sold,
+                isSold: i.isSold,
                 image: meta.data.image,
             }
             return item; 
@@ -71,12 +71,12 @@ export default function Dashboard() {
             </div>
             <div className='px-4'>
                 {
-                    Boolean(sold.length) && (
+                    Boolean(isSold.length) && (
                         <div>
                             <h2 className='text-2xl py-2'>Items Sold</h2>
                             <div className='grid grid-cols-1 sm:grid-cols-2 lg-grid-cols-4 gap-4 pt-4'>
                                 {
-                                    sold.map((nft,i) => (
+                                    isSold.map((nft,i) => (
                                         <div key={i} className="border shadow rounded-xl overflow-hidden">
                                             <img src={nft.image} className="rounded"/>
                                             <div className="p-4 bg-black">
