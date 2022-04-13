@@ -22,8 +22,8 @@ export default function OwnedAssets() {
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
 
-        const marketContract = new ethers.Contract(nftAddress, NFTMarket.abi, signer)
-        const tokenContract = new ethers.Contract(marketPlaceAddress, NFT.abi, provider)
+        const marketContract = new ethers.Contract(marketPlaceAddress, NFTMarket.abi, signer)
+        const tokenContract = new ethers.Contract(nftAddress, NFT.abi, provider)
         const data = await marketContract.fetchMyNFTs()
 
         const items = await Promise.all(data.map(async i=> {
