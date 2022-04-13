@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
               Create
             </a>
           </Link>
-          <Link href="/owned assets">
+          <Link href="/owned-assets">
             <a className='mr-6 text-pink-500'>
               My digital assets
             </a>
