@@ -4,7 +4,7 @@ import axios from 'axios'
 import Web3Modal from 'web3modal'
 
 import {
-  nftAddress, marketPlaceAdress
+  nftAddress, marketPlaceAddress 
 } from '../config'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
@@ -21,7 +21,7 @@ export default function Home() {
   async function loadNFTs() {
     const provider = new ethers.providers.JsonRpcProvider()
     const nftContract = new ethers.Contract(nftAddress, NFT.abi, provider)
-    const marketContract = new ethers.Contract(marketPlaceAdress, NFTMarket.abi, provider)
+    const marketContract = new ethers.Contract(marketPlaceAddress, NFTMarket.abi, provider)
 
     const data = await marketContract.fetchMarketItems()
 
@@ -50,7 +50,7 @@ export default function Home() {
     const provider = new ethers.providers.Web3Provider(connection)
 
     const signer = provider.getSigner()
-    const contract = new ethers.Contract(marketPlaceAdress, NFTMarket.abi, signer)
+    const contract = new ethers.Contract(marketPlaceAddress, NFTMarket.abi, signer)
 
     const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
 
@@ -63,7 +63,7 @@ export default function Home() {
   }
 
   if(loadingState === 'loaded' && !nfts.length) return (
-    <h1 className="px-20 py-10 text-3xl"> No items to show in Maketplace </h1>
+    <h1 className="px-20 py-10 text-3xl"> No items to show in Marketplace </h1>
   )
 
   return (
