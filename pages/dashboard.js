@@ -47,7 +47,7 @@ export default function Dashboard() {
             return item; 
         }))
 
-        const soldItems = items.filter(i => i.sold)
+        const soldItems = items.filter(i => i.isSold)
         setSold(soldItems)
         setNfts(items)
         setLoadingState('loaded')
