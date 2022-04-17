@@ -83,39 +83,45 @@ export default function CreateNFT() {
     }
 
     return (
-        <div className="flex justify-center">
-            <div className="w-1/2 flex flex-col pb-12">
-                <input
-                    placeholder="Asset Name"
-                    className="mt-8 border rounded p-4"
-                    onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
-                />
-                <textarea
-                    placeholder="Asset Description"
-                    className="mt-2 border rounded p-4"
-                    onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
-                />
-                <input
-                    placeholder="Asset Price"
-                    className="mt-2 border rounded p-4"
-                    onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
-                />
-                <input
-                    type="file"
-                    name="Asset"
-                    className="my-4"
-                    onChange={onChange}
-                />
-                {
-                    fileUrl && (
-                        <img className="rounded mt-4" width="350" src={fileUrl} />
-                    )
-                }
-                <button onClick={createNFT} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
-                    Create NFT
-                </button>
+        <div className='grid grid-cols-2  mt-16 mx-32 mb-32'>
+            <div>
+            <img src='https://cdn.discordapp.com/attachments/924003905128517645/965074874479566949/create-removebg-preview.png' className="max-w-full" />
+            </div>
+            <div className="justify-center rounded-md border shadow-xl">
+                <div className="grid grid-rows-4">
+                    <input
+                        placeholder="Asset Name"
+                        className="mt-8 m-2 border rounded p-4"
+                        onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
+                    />
+                    <textarea
+                        placeholder="Asset Description"
+                        className="m-2 border rounded p-4"
+                        onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
+                    />
+                    <input
+                        placeholder="Asset Price"
+                        className="m-2 border rounded p-4"
+                        onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
+                    />
+                    <input
+                        type="file"
+                        name="Asset"
+                        className="m-4"
+                        onChange={onChange}
+                    />
+                    {
+                        fileUrl && (
+                            <img className="rounded m-4" width="350" src={fileUrl} />
+                        )
+                    }
+                    <button onClick={createNFT} className="font-bold m-4 btn btn-outline btn-primary p-4 max-w-xs m-auto">
+                        Create NFT
+                    </button>
+                </div>
             </div>
         </div>
+
     )
 
 }
