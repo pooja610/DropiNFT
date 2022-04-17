@@ -43,7 +43,7 @@ typechain
 
 #Hardhat files
 cache
-artifacts
+# artifacts -- it is a build folder but we have to push it as we don't want to provide the privateKey
 
 #Private files
 .secret
