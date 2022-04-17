@@ -20,7 +20,7 @@ export default function Home() {
   }, [])
 
   async function loadNFTs() {
-    const provider = new ethers.providers.JsonRpcProvider()
+    const provider = new ethers.providers.JsonRpcProvider('https://polygon-mumbai.g.alchemy.com/v2/F9n4vbebShnJO2KG_oFxjxsIZsePXZWD')
     const nftContract = new ethers.Contract(nftAddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(marketPlaceAddress, NFTMarket.abi, provider)
 
