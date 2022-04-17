@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
     <div>
       <head>
         <title>DropiNFT</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </head>
 
       <nav className="sticky top-0 z-10 bg-white"
