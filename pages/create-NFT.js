@@ -85,7 +85,7 @@ export default function CreateNFT() {
     return (
         <div className='grid grid-cols-2  mt-16 mx-32 mb-32'>
             <div>
-            <img src='https://cdn.discordapp.com/attachments/924003905128517645/965074874479566949/create-removebg-preview.png' className="max-w-full" />
+                <img src='https://cdn.discordapp.com/attachments/924003905128517645/965074874479566949/create-removebg-preview.png' className="max-w-full" />
             </div>
             <div className="justify-center rounded-md border shadow-xl">
                 <div className="grid grid-rows-4">
@@ -115,7 +115,7 @@ export default function CreateNFT() {
                             <img className="rounded m-4" width="350" src={fileUrl} />
                         )
                     }
-                    <button onClick={createNFT} className="font-bold m-4 btn btn-outline btn-primary p-4 max-w-xs m-auto">
+                    <button onClick={createNFT} className="font-bold m-4 btn btn-outline btn-primary p-4 max-w-xs m-auto mb-4">
                         Create NFT
                     </button>
                 </div>
