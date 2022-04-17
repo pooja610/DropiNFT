@@ -7,5 +7,17 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          primary: "#ab6af7",
+          "primary-focus": "#ab6af7",
+        },
+      },
+    ],
+  },
 }
